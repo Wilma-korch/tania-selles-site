@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tania Selles - Psicóloga Junguiana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* SEÇÃO DO PERFIL - FOTO + MANDALA */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        /* FOTO DO PERFIL NO HEADER */
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #8b5cf6;
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 60px rgba(139, 92, 246, 0.6);
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* SEÇÃO SOBRE MIM COM FOTO MAIOR */
+        .about-container {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .about-photo-section {
+            flex: 0 0 280px;
+        }
+        
+        .about-photo {
+            width: 280px;
+            height: 350px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 4px solid #8b5cf6;
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .about-photo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
+        }
+        
+        .about-text-section {
+            flex: 1;
+        }
+        
+        /* MANDALA DECORATIVA */
+        .spiritual-mandala {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            animation: rotate 25s linear infinite;
+            margin: 20px 0;
+        }
+        
+        .mandala-layer-1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(from 0deg, 
+                #4c1d95 0deg,
+                #6366f1 60deg,
+                #8b5cf6 120deg,
+                #d946ef 180deg,
+                #f59e0b 240deg,
+                #06b6d4 300deg,
+                #4c1d95 360deg);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .mandala-layer-2 {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mandala-layer-3 {
+            width: 80px;
+            height: 80px;
+            background: conic-gradient(from 45deg,
+                #8b5cf6 0deg,
+                #06b6d4 90deg,
+                #10b981 180deg,
+                #f59e0b 270deg,
+                #8b5cf6 360deg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotate-reverse 15s linear infinite;
+        }
+        
+        .mandala-center {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #ffffff 0%, #f8fafc 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .floating-symbols {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            top: -15px;
+            left: -15px;
+        }
+        
+        .floating-symbol {
+            position: absolute;
+            font-size: 1.2em;
+            opacity: 0.8;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .floating-symbol:nth-child(1) { 
+            top: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            animation-delay: 0s; 
+        }
+        .floating-symbol:nth-child(2) { 
+            top: 50%; 
+            right: 0; 
+            transform: translateY(-50%); 
+            animation-delay: 1s; 
+        }
+        .floating-symbol:nth-child(3) { 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            animation-delay: 2s; 
+        }
+        .floating-symbol:nth-child(4) { 
+            top: 50%; 
+            left: 0; 
+            transform: translateY(-50%); 
+            animation-delay: 3s; 
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes rotate-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(-50%); }
+            50% { transform: translateY(-15px) translateX(-50%); }
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            color: #4a5568;
+            margin-bottom: 15px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 1.5em;
+            color: #718096;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        .credentials {
+            font-size: 1.1em;
+            color: #a0aec0;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .nav-item {
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #4a5568;
+            border: 2px solid transparent;
+            font-size: 1.1em;
+        }
+        .nav-item:hover,
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        .section-title {
+            font-size: 2.5em;
+            color: #4a5568;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+            display: block;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+        .about-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            text-align: justify;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .contact-item {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        .contact-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        .contact-label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .contact-info {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .specialization {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .specialization h3 {
+            color: #8b4513;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+        .specialization p {
+            color: #5d4e37;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 1.4em;
+            text-align: center;
+            color: #6b46c1;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(139, 92, 246, 0.1);
+            border-left: 6px solid #8b5cf6;
+            border-radius: 0 15px 15px 0;
+        }
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-btn svg {
+            width: 38px;
+            height: 38px;
+            fill: white;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4); }
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 1.1em;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        .testimonial-form {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 35px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+        .testimonial-form h3 {
+            color: #8b4513;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        
+        /* Foto placeholder */
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            border-radius: inherit;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            h1 { font-size: 2.5em; }
+            .content-section { padding: 25px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .profile-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .about-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+            .about-photo-section {
+                flex: none;
+            }
+            .about-photo {
+                width: 250px;
+                height: 300px;
+            }
+            .spiritual-mandala {
+                width: 120px;
+                height: 120px;
+            }
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-section">
+                <!-- MANDALA ESPIRITUAL DECORATIVA -->
+                <div class="spiritual-mandala">
+                    <div class="mandala-layer-1"></div>
+                    <div class="mandala-layer-2">
+                        <div class="mandala-layer-3">
+                            <div class="mandala-center">🧘‍♀️</div>
+                        </div>
+                    </div>
+                    <div class="floating-symbols">
+                        <div class="floating-symbol">✨</div>
+                        <div class="floating-symbol">🌙</div>
+                        <div class="floating-symbol">☯️</div>
+                        <div class="floating-symbol">🔮</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1>Tania Selles</h1>
+            <p class="subtitle">Psicóloga em formação contínua da alma</p>
+            <div class="credentials">
+                <p>CRP 06/188684 | CRT-BR 15250</p>
+            </div>
+        </header>
+
+        <!-- Navigation Menu -->
+        <div class="nav-menu">
+            <div class="nav-item active" data-tab="sobre">Sobre Mim</div>
+            <div class="nav-item" data-tab="agendamento">Agendamento</div>
+            <div class="nav-item" data-tab="depoimentos">Depoimentos</div>
+            <div class="nav-item" data-tab="contato">Contato</div>
+        </div>
+
+        <!-- Sobre Mim Tab -->
+        <div id="sobre" class="tab-content active">
+            <div class="content-section">
+                <h2 class="section-title">Sobre Mim</h2>
+                
+                <div class="about-container">
+                    <!-- FOTO MAIOR DA TANIA -->
+                    <div class="about-photo-section">
+                        <!-- FOTO DA TANIA -->
+                        <img src="https://i.postimg.cc/FHqnXP5H/foto-tania-jpg.jpg" 
+                             alt="Tania Selles - Psicóloga Junguiana" 
+                             class="about-photo">>>
+                    </div>
+                    
+                    <!-- TEXTOS -->
+                    <div class="about-text-section">
+                        <p class="about-text">
+                            Minha jornada começou com o desejo genuíno de cuidar --- um chamado que me acompanha desde a infância. Iniciei esse caminho pela via da Terapia Holística, pela Escola Superior de Técnicas Alternativas, me formando em 2003, onde tive meu primeiro contato profundo com o sagrado, com minha ancestralidade e com as forças simbólicas que habitam em nós.
+                        </p>
+
+                        <p class="about-text">
+                            Ao longo dos anos, minha escuta se aprofundou, e o chamado do inconsciente se fez mais claro. Em 2022, tornei-me psicóloga, pela Universidade Nove de Julho e atualmente me especializo em Psicologia Analítica Junguiana pelo Instituto Freedom.
+                        </p>
+
+                        <p class="about-text">
+                            A psicologia de Jung me deu linguagem para aquilo que meu coração já intuía: que toda dor contém uma mensagem e que cada ser humano carrega dentro de si um potencial de cura, transformação e reconexão com sua totalidade.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="quote">
+                    "O processo de individuação é o retorno ao Self --- um caminho em espiral que nos conduz de volta a quem realmente somos."
+                </div>
+
+                <p class="about-text">
+                    Meu trabalho é voltado especialmente para pessoas que sentem o desejo de se reconectar com sua essência. Através da escuta ativa e do acolhimento, ofereço um espaço para que o inconsciente possa se expressar --- seja por meio dos sonhos, dos sintomas do corpo, das emoções ou dos silêncios.
+                </p>
+
+                <div class="specialization">
+                    <h3>🌸 Abordagem Integrativa</h3>
+                    <p>Com a psicologia junguiana e as práticas integrativas que sigo cultivando, convido meus pacientes a mergulharem nesse diálogo entre corpo, alma e psique. Cada encontro é uma mandala viva, única, onde os símbolos se revelam e a alma encontra sua própria linguagem.</p>
+                </div>
+
+                <p class="about-text">
+                    A mandala, aliás, é meu maior símbolo de inspiração: ela representa o centro, a totalidade e o eterno movimento de transformação interior. Se você sente o chamado de olhar para dentro e escutar a si mesma com profundidade, estou aqui para caminhar ao seu lado, com presença, afeto e respeito pelo seu processo.
+                </p>
+            </div>
+        </div>
+
+        <!-- Agendamento Tab -->
+        <div id="agendamento" class="tab-content">
+            <div class="content-section">
+                <h2 class="section-title">Agendamento de Consulta</h2>
+               
+                <form id="agendamentoForm" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data Preferida</label>
+                        <input type="date" id="data" name="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="horario">Horário Preferido</label>
+                        <select id="horario" name="horario" required>
+                            <option value="">Selecione um horário</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="servico">Tipo de Serviço</label>
+                        <select id="servico" name="servico" required>
+                            <option value="">Selecione um serviço</option>
+                            <option value="consulta-individual">Consulta Individual</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem (Opcional)</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre o que te traz aqui..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Solicitar Agendamento</button>
+                </form>
+
+                <div style="text-align: center; margin-top: 30px; padding: 25px; background: rgba(139, 92, 246, 0.1); border-radius: 15px;">
+                    <p style="color: #6b46c1; font-size: 1.1em;">
+                        <strong>📅 Importante:</strong> Este formulário é uma solicitação de agendamento. Entraremos em contato em até 24h para confirmar o horário disponível.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Depoimentos Tab -->
+        <div id="depoimentos" class="tab-content">
+            <div class="content-section">
+                <h2 class="section-title">Depoimentos</h2>
+               
+                <div class="testimonial-form">
+                    <h3>Deixe seu depoimento</h3>
+                    <form id="testimonialForm" onsubmit="addTestimonial(event)">
+                        <div class="form-group">
+                            <input type="text" id="clientName" placeholder="Seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+                                <span>Avaliação: </span>
+                                <div class="stars" id="ratingStars">
+                                    <span class="star" data-rating="1" style="font-size: 1.8em; cursor: pointer; opacity: 0.3; transition: all 0.3s ease;">⭐</span>
+                                    <span class="star" data-rating="2" style="font-size: 1.8em; cursor: pointer; opacity: 0.3; transition: all 0.3s ease;">⭐</span>
+                                    <span class="star" data-rating="3" style="font-size: 1.8em; cursor: pointer; opacity: 0.3; transition: all 0.3s ease;">⭐</span>
+                                    <span class="star" data-rating="4" style="font-size: 1.8em; cursor: pointer; opacity: 0.3; transition: all 0.3s ease;">⭐</span>
+                                    <span class="star" data-rating="5" style="font-size: 1.8em; cursor: pointer; opacity: 0.3; transition: all 0.3s ease;">⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="testimonialText" placeholder="Conte como foi sua experiência..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Depoimento</button>
+                    </form>
+                </div>
+
+                <div class="testimonials-container" id="testimonialsContainer">
+                    <!-- Depoimentos serão carregados aqui -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Contato Tab -->
+        <div id="contato" class="tab-content">
+            <div class="content-section">
+                <h2 class="section-title">Contato</h2>
+               
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-label">Celular</div>
+                        <div class="contact-info">+55 (11) 99779-7985</div>
+                    </div>
+                   
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-label">E-mail</div>
+                        <div class="contact-info">tania.selles08atend@gmail.com</div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 50px; padding: 40px; background: rgba(139, 92, 246, 0.1); border-radius: 20px;">
+                    <p style="font-size: 1.3em; color: #6b46c1; font-style: italic; line-height: 1.6;">
+                        "Estou aqui para caminhar ao seu lado, com presença, afeto e respeito pelo seu processo de autoconhecimento e transformação."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/5511997797985?text=Olá! Gostaria de agendar uma consulta." class="whatsapp-btn" target="_blank" title="Fale comigo no WhatsApp">
+            <svg viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Firebase CDN -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy, doc, deleteDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA2O86HfREs0iwM-9kKjH7L5oPRSkdMv0o",
+            authDomain: "tcc-tania--reports.firebaseapp.com",
+            projectId: "tcc-tania--reports",
+            storageBucket: "tcc-tania--reports.firebasestorage.app",
+            messagingSenderId: "513046268686",
+            appId: "1:513046268686:web:60c4f0fa4478529906e55f"
+        };
+
+        // Initialize Firebase
+        let app, db;
+        let isFirebaseConnected = false;
+
+        try {
+            app = initializeApp(firebaseConfig);
+            db = getFirestore(app);
+            isFirebaseConnected = true;
+            console.log('✅ Firebase conectado!');
+        } catch (error) {
+            console.log('⚠️ Firebase offline - modo local');
+            isFirebaseConnected = false;
+        }
+
+        // Make Firebase available globally
+        window.firebaseDB = db;
+        window.isFirebaseConnected = isFirebaseConnected;
+        window.firebaseModules = { collection, addDoc, getDocs, query, orderBy, doc, deleteDoc };
+    </script>
+
+    <script>
+        // ===== TAB SYSTEM =====
+        function initTabs() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+           
+            navItems.forEach(navItem => {
+                navItem.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                   
+                    navItems.forEach(item => item.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                   
+                    this.classList.add('active');
+                   
+                    const targetContent = document.getElementById(targetTab);
+                    if (targetContent) {
+                        targetContent.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // ===== FORM HANDLING =====
+        function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            const message = `🌸 Nova Solicitação de Agendamento 🌸
+
+📋 Dados:
+Nome: ${data.nome}
+E-mail: ${data.email}
+Telefone: ${data.telefone}
+Data: ${data.data}
+Horário: ${data.horario}
+Serviço: ${data.servico}
+Mensagem: ${data.mensagem || 'Não informada'}`;
+
+            const whatsappUrl = `https://wa.me/5511997797985?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+            
+            event.target.reset();
+            
+            const submitBtn = event.target.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '✅ Enviado!';
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+            }, 3000);
+        }
+
+        // ===== FIREBASE DATA MANAGEMENT =====
+        let currentRating = 0;
+        let testimonials = [];
+
+        async function loadTestimonials() {
+            const container = document.getElementById('testimonialsContainer');
+            if (!container) return;
+           
+            container.innerHTML = '<div style="text-align: center; padding: 20px; color: #6b46c1;">Carregando depoimentos...</div>';
+
+            let loadedTestimonials = [];
+
+            if (window.isFirebaseConnected && window.firebaseDB) {
+                try {
+                    const { collection, getDocs, query, orderBy } = window.firebaseModules;
+                    const q = query(collection(window.firebaseDB, 'testimonials'), orderBy('date', 'desc'));
+                    const querySnapshot = await getDocs(q);
+                    
+                    querySnapshot.forEach((doc) => {
+                        loadedTestimonials.push({
+                            id: doc.id,
+                            ...doc.data()
+                        });
+                    });
+                    
+                    console.log(`✅ ${loadedTestimonials.length} depoimentos carregados do Firebase`);
+                } catch (error) {
+                    console.log('⚠️ Erro no Firebase:', error.message);
+                    loadedTestimonials = testimonials;
+                }
+            } else {
+                loadedTestimonials = testimonials;
+            }
+
+            container.innerHTML = '';
+            
+            if (loadedTestimonials.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; background: rgba(139, 92, 246, 0.1); border-radius: 15px; color: #6b46c1;">
+                        <h3 style="margin-bottom: 10px;">💜 Seja o primeiro!</h3>
+                        <p>Ainda não temos depoimentos. Que tal compartilhar sua experiência?</p>
+                    </div>
+                `;
+            } else {
+                loadedTestimonials.forEach(testimonial => {
+                    const card = createTestimonialCard(testimonial);
+                    container.appendChild(card);
+                });
+            }
+        }
+
+        function createTestimonialCard(testimonial) {
+            const card = document.createElement('div');
+            card.style.cssText = `
+                background: rgba(255, 255, 255, 0.95); 
+                padding: 30px; 
+                border-radius: 20px; 
+                border-left: 6px solid #8b5cf6; 
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
+                margin-bottom: 25px;
+                animation: slideIn 0.5s ease-out;
+            `;
+           
+            const stars = '⭐'.repeat(testimonial.rating);
+            const date = new Date(testimonial.date).toLocaleDateString('pt-BR');
+           
+            card.innerHTML = `
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="font-weight: bold; color: #4a5568; font-size: 1.3em;">${testimonial.name}</div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div style="font-size: 1.4em;">${stars}</div>
+                        <button onclick="deleteTestimonial('${testimonial.id || testimonial.name + testimonial.date}', this)" 
+                                style="background: #ef4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-size: 0.9em; transition: all 0.3s ease;">🗑️</button>
+                    </div>
+                </div>
+                <div style="color: #6b46c1; font-style: italic; line-height: 1.8; font-size: 1.2em;">"${testimonial.text}"</div>
+                <div style="font-size: 1em; color: #a0aec0; margin-top: 15px; text-align: right;">${date}</div>
+            `;
+           
+            return card;
+        }
+
+        async function addTestimonial(event) {
+            event.preventDefault();
+           
+            const name = document.getElementById('clientName').value;
+            const text = document.getElementById('testimonialText').value;
+           
+            if (!currentRating) {
+                alert('Por favor, selecione uma avaliação!');
+                return;
+            }
+
+            const newTestimonial = {
+                name: name,
+                rating: currentRating,
+                text: text,
+                date: new Date().toISOString()
+            };
+
+            if (window.isFirebaseConnected && window.firebaseDB) {
+                try {
+                    const { collection, addDoc } = window.firebaseModules;
+                    await addDoc(collection(window.firebaseDB, 'testimonials'), newTestimonial);
+                    console.log('✅ Depoimento salvo no Firebase!');
+                } catch (error) {
+                    testimonials.unshift(newTestimonial);
+                    console.log('⚠️ Salvo localmente:', error.message);
+                }
+            } else {
+                testimonials.unshift(newTestimonial);
+            }
+
+            loadTestimonials();
+           
+            event.target.reset();
+            currentRating = 0;
+            document.querySelectorAll('.star').forEach(s => s.style.opacity = '0.3');
+           
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                color: white;
+                padding: 15px;
+                border-radius: 10px;
+                margin: 15px 0;
+                text-align: center;
+                font-weight: 600;
+                animation: slideIn 0.3s ease-out;
+            `;
+            successDiv.innerHTML = '🎉 <strong>Depoimento adicionado com sucesso!</strong>';
+            event.target.parentNode.insertBefore(successDiv, event.target.nextSibling);
+           
+            setTimeout(() => {
+                if (successDiv.parentNode) {
+                    successDiv.parentNode.removeChild(successDiv);
+                }
+            }, 4000);
+        }
+
+        async function deleteTestimonial(testimonialId, buttonElement) {
+            if (!confirm('Tem certeza que deseja excluir este depoimento?')) {
+                return;
+            }
+
+            try {
+                if (window.isFirebaseConnected && window.firebaseDB && testimonialId.length > 10) {
+                    const { doc, deleteDoc } = window.firebaseModules;
+                    await deleteDoc(doc(window.firebaseDB, 'testimonials', testimonialId));
+                    console.log('✅ Depoimento removido do Firebase!');
+                } else {
+                    const index = testimonials.findIndex(t => 
+                        (t.name + t.date) === testimonialId || t.id === testimonialId
+                    );
+                    if (index > -1) {
+                        testimonials.splice(index, 1);
+                    }
+                }
+
+                const card = buttonElement.closest('div').parentElement;
+                card.style.animation = 'slideOut 0.3s ease-out';
+                
+                setTimeout(() => {
+                    loadTestimonials();
+                }, 300);
+                
+            } catch (error) {
+                console.error('❌ Erro ao excluir depoimento:', error);
+                alert('Erro ao excluir depoimento: ' + error.message);
+            }
+        }
+
+        function setupRating() {
+            const stars = document.querySelectorAll('.star');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    currentRating = index + 1;
+                    stars.forEach((s, i) => {
+                        s.style.opacity = i < currentRating ? '1' : '0.3';
+                        s.style.transform = i < currentRating ? 'scale(1.2)' : 'scale(1)';
+                    });
+                });
+            });
+        }
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            initTabs();
+            setupRating();
+            
+            // Set minimum date for appointment
+            const dateInput = document.getElementById('data');
+            if (dateInput) {
+                dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
+            }
+            
+            // Load testimonials when depoimentos tab is clicked
+            const depoimentosTab = document.querySelector('[data-tab="depoimentos"]');
+            if (depoimentosTab) {
+                depoimentosTab.addEventListener('click', () => {
+                    setTimeout(loadTestimonials, 100);
+                });
+            }
+            
+            console.log('✅ Site da Tania Selles carregado com Firebase!');
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes slideOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
